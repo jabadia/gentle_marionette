@@ -8,15 +8,17 @@ ContactManager.on("start", function()
 {
 	console.log("[start] app initialized");
 
-	var alice = new ContactManager.Contact({
-		firstName: 'Alice',
-		lastName: 'Arten',
-		phoneNumber: '555-1234'
-	});
+	var contacts = new ContactManager.ContactCollection([
+	{	firstName: 'Bob',		lastName: 'Nolan',		phoneNumber: '555-1111'	},
+	{	firstName: 'Alice',		lastName: 'WhoTheFuck',	phoneNumber: '555-2222' },
+	{	firstName: 'Charlie',	lastName: 'Campbell',	phoneNumber: '555-3333' }
+	]);
 
-	var aliceView = new ContactManager.ContactView({
-		model: alice
-	});
+	console.log(contacts);
 
-	ContactManager.mainRegion.show(aliceView);
+	var contactsListView = new ContactManager.ContactCollectionView({
+		collection: contacts
+	})
+
+	ContactManager.mainRegion.show(contactsListView);
 })

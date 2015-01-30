@@ -1,5 +1,7 @@
 ContactManager.ContactView = Marionette.ItemView.extend({
-	template: '#contact-template',
+
+	template: '#contact-list-item',
+	tagName: 'li',
 	events: {
 		'click p': 'alertPhoneNumber',
 	},
@@ -8,4 +10,11 @@ ContactManager.ContactView = Marionette.ItemView.extend({
 	{
 		alert(this.model.escape('phoneNumber'));
 	}
-})
+});
+
+ContactManager.ContactCollectionView = Marionette.CollectionView.extend({
+
+	tagName: 'ul',
+	childView: ContactManager.ContactView,
+
+});
