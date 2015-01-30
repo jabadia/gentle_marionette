@@ -4,10 +4,6 @@ ContactManager.addRegions({
 	mainRegion: "#main-region",
 });
 
-ContactManager.ContactView = Marionette.ItemView.extend({
-	template: '#contact-template',
-})
-
 ContactManager.on("start", function()
 {
 	console.log("[start] app initialized");
