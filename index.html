@@ -16,9 +16,17 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div id="main-region" class="container">
 		<p>Here is static content in the web page. You'll notice it gets replaced by the app as soon as it is started</p>
 	</div>
+
+	<!-- templates -->
+
+	<script type="text/template" id="static-template">
+		<p>This is text that was rendered by our Marionette app</p>		
+	</script>
+
+	<!-- vendor js -->
 
 	<script src="lib/js/jquery.js"></script>
 	<script src="lib/js/json2.js"></script>
@@ -26,6 +34,11 @@
 	<script src="lib/js/backbone.js"></script>
 	<script src="lib/js/backbone.marionette.js"></script>
 
+	<!-- app js -->
 
+	<script src="js/app.js"></script>
+	<script>
+	ContactManager.start();
+	</script>
 </body>
 </html>
