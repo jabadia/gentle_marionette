@@ -4,19 +4,23 @@ ContactManager.addRegions({
 	mainRegion: "#main-region",
 });
 
-ContactManager.StaticView = Marionette.ItemView.extend({
-	id: "static-view",
-	tagName: "span",
-	className: "instruction",
-	template: "#static-template",
+ContactManager.ContactView = Marionette.ItemView.extend({
+	template: '#contact-template',
 })
 
 ContactManager.on("start", function()
 {
 	console.log("[start] app initialized");
-	var staticView = new ContactManager.StaticView({
-		template: "#list-item-template",
-		tagName: 'ul',
+
+	var alice = new ContactManager.Contact({
+		firstName: 'Alice',
+		lastName: 'Arten',
+		phoneNumber: '555-1234'
 	});
-	ContactManager.mainRegion.show(staticView);
+
+	var aliceView = new ContactManager.ContactView({
+		model: alice
+	});
+
+	ContactManager.mainRegion.show(aliceView);
 })
