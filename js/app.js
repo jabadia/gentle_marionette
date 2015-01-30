@@ -8,7 +8,7 @@ ContactManager.on("start", function()
 {
 	console.log("[start] app initialized");
 
-	var contacts = new ContactManager.ContactCollection([
+	var contacts = new ContactManager.Entities.ContactCollection([
 	{	firstName: 'Bob',		lastName: 'Nolan',		phoneNumber: '555-1111'	},
 	{	firstName: 'Alice',		lastName: 'WhoTheFuck',	phoneNumber: '555-2222' },
 	{	firstName: 'Charlie',	lastName: 'Campbell',	phoneNumber: '555-3333' },

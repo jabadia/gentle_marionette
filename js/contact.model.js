@@ -1,19 +1,22 @@
-ContactManager.Contact = Backbone.Model.extend({
+ContactManager.module("Entities", function(Entities,ContactManager,Backbone,Marionette,$,_)
+{
 
-	defaults: {
-		firstName: '-',		
-		lastName: '-',
-		phoneNumber: 'unknown',
-	}
+	Entities.Contact = Backbone.Model.extend({
+
+		defaults: {
+			firstName: '-',		
+			lastName: '-',
+			phoneNumber: 'unknown',
+		}
+
+	});
+
+	Entities.ContactCollection = Backbone.Collection.extend({
+
+		model: Entities.Contact,
+		comparator: 'lastName',
+
+	});
 
 });
 
-ContactManager.ContactCollection = Backbone.Collection.extend({
-
-	model: ContactManager.Contact,
-	comparator: function(a,b) { 
-		return a.get('firstName')+ " " + a.get('lastName') >  b.get('firstName')+ " " + b.get('lastName');
-	}
-	//'firstName',
-
-});
