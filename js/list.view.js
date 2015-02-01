@@ -6,7 +6,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
 		events: {
 			"click": "highlightName",
-			"click td": "alertName",
+			"click button.js-delete": "deleteClicked",
 		},
 
 		highlightName: function(e)
@@ -15,9 +15,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 			this.$el.toggleClass('warning');
 		},
 
-		alertName: function(e)
+		deleteClicked: function(e)
 		{
-			alert($(e.target).text());
+			e.stopPropagation();
+			this.trigger('contact:delete', this.model);
 		}
 	});
 
