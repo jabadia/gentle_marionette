@@ -1,7 +1,7 @@
 
 //https://api.coursera.org/api/catalog.v1/courses
 
-/*
+/**/
 
 ContactManager.module("Entities", function(Entities,ContactManager,Backbone,Marionette,$,_)
 {
@@ -16,17 +16,6 @@ ContactManager.module("Entities", function(Entities,ContactManager,Backbone,Mari
 
 	});
 
-	var _courses;
-
-	var _initializeCourses = function()
-	{
-
-	}
-
-	var API = 
-	{
-
-	}
 });
 
-*/
+//*/
