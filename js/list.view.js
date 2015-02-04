@@ -6,12 +6,20 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
 		events: {
 			"click button.js-delete": "deleteClicked",
+			"click td a.js-show"	: "showClicked",
 		},
 
 		deleteClicked: function(e)
 		{
 			e.stopPropagation();
 			this.trigger("contact:delete", this.model);
+		},
+
+		showClicked: function(e)
+		{
+			e.preventDefault();
+			e.stopPropagation();
+			this.trigger("contact:show", this.model);
 		},
 
 		remove: function()
