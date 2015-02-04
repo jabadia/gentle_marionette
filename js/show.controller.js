@@ -20,7 +20,7 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
 				return;
 			}
 
-			Backbone.history.navigate("contact/" + id);
+			Backbone.history.navigate("contacts/" + id);
 
 			var contactView = new Show.Contact({
 				model: model

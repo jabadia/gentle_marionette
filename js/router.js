@@ -3,7 +3,7 @@ ContactManager.module("ContactsApp", function(ContactsApp, ContactManager, Backb
 	ContactsApp.Router = Marionette.AppRouter.extend({
 		appRoutes: {
 			"contacts": "listContacts",
-			"contact/:id": "showContact",
+			"contacts/:id": "showContact",
 		},
 
 		controller: {
