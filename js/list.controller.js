@@ -22,4 +22,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 			ContactManager.mainRegion.show(contactsListView);
 		},		
 	}
+
+	ContactManager.on('contacts:list', function()
+	{
+		Backbone.history.navigate("contacts");
+		List.Controller.listContacts();
+	})
 });
