@@ -3,6 +3,8 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 	List.Controller = {
 		listContacts: function()
 		{
+			Backbone.history.navigate("contacts");
+
 			var contacts = ContactManager.request('contact:entities');
 
 			var contactsListView = new List.Contacts({
@@ -22,10 +24,4 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 			ContactManager.mainRegion.show(contactsListView);
 		},		
 	}
-
-	ContactManager.on('contacts:list', function()
-	{
-		Backbone.history.navigate("contacts");
-		List.Controller.listContacts();
-	})
 });

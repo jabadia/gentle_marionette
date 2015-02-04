@@ -4,6 +4,21 @@ ContactManager.addRegions({
 	mainRegion: "#main-region",
 });
 
+ContactManager.ErrorView = Marionette.ItemView.extend({
+	template: '#error-view'
+})
+
+ContactManager.Error = Backbone.Model.extend({
+	defaults: { msg: "unknown error" }
+});
+
+ContactManager.error = function(msg)
+{
+	var error = new ContactManager.Error({msg:msg})
+	var errorView = new ContactManager.ErrorView({ model: error });
+	ContactManager.mainRegion.show(errorView);
+}
+
 ContactManager.on("start", function()
 {
 	console.log("[start] app initialized");
@@ -14,7 +29,7 @@ ContactManager.on("start", function()
 
 		if( Backbone.history.fragment === "")
 		{
-			ContactManager.trigger("contacts:list");
+			ContactManager.ContactsApp.List.Controller.listContacts();
 		}
 	}
 })

@@ -3,6 +3,25 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
 	Show.Controller = {
 		showContact: function(model)
 		{
+			var id = model;
+			if( typeof model !== 'object')
+			{
+				var contacts = ContactManager.request('contact:entities');
+				model = contacts.get(id);
+			}			
+			else
+			{
+				id = model.get('id');
+			}
+
+			if( ! model )
+			{
+				ContactManager.error("Can't find contact " + id);
+				return;
+			}
+
+			Backbone.history.navigate("contact/" + id);
+
 			var contactView = new Show.Contact({
 				model: model
 			});
@@ -10,4 +29,5 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
 			ContactManager.mainRegion.show(contactView);
 		}
 	}
+
 });

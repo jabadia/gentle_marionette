@@ -26,7 +26,7 @@
 		<td><%= firstName %></td>
 		<td><%= lastName %></td>
 		<td>
-			<a href="#" class="btn btn-small js-show">
+			<a href="#contact/<%= id %>" class="btn btn-small js-show">
 				<i class="icon-eye-open"></i> 
 				Show
 			</a>
@@ -51,6 +51,12 @@
 	<script type="text/template" id="contact-view">
 		<h1><%= firstName %> <%= lastName %></h1>
 		<p><strong>Phone Number:</strong>  <%= phoneNumber %></p>
+		<a href="">back to main</a>
+	</script>
+
+	<script type="text/template" id="error-view">
+		<p><%= msg %></p>
+		<a href="">back to main</a>
 	</script>
 
 	<!-- vendor js -->
