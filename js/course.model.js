@@ -12,8 +12,12 @@ ContactManager.module("Entities", function(Entities,ContactManager,Backbone,Mari
 	Entities.Courses = Backbone.Collection.extend({
 
 		model: Entities.Course,
-		urL: 'https://api.coursera.org/api/catalog.v1/courses',
+		url: 'https://api.coursera.org/api/catalog.v1/courses',
 
+		parse: function(resp,xhr)
+		{
+			return resp.elements;
+		}
 	});
 
 });

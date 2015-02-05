@@ -20,6 +20,10 @@
 		<p>Here is static content in the web page. You'll notice it gets replaced by the app as soon as it is started</p>
 	</div>
 
+	<div id="courses-region" class="container">
+		<p>This will contain the list of courses</p>
+	</div>
+
 	<!-- templates -->
 
 	<script type="text/template" id="contact-list-item">
@@ -59,6 +63,23 @@
 		<a href="">back to main</a>
 	</script>
 
+	<script type="text/template" id="course-item">
+		<td><%= id %></td>
+		<td><%= name %></td>
+		<td></td>
+	</script>
+
+	<script type="text/template" id="course-list">
+		<thead><tr style="display:block;">
+			<th>Id</th>
+			<th>Title</th>
+			<th>University</th>
+		</tr></thead>
+		<tbody class="scroll-table"></tbody>
+	</script>
+
+
+
 	<!-- vendor js -->
 
 	<script src="lib/js/jquery.js"></script>
@@ -77,6 +98,7 @@
 	<script src="js/list.controller.js"></script>
 	<script src="js/show.view.js"></script>
 	<script src="js/show.controller.js"></script>
+	<script src="js/course.view.js"></script>
 	<script>
 	ContactManager.start();
 	</script>

@@ -2,6 +2,7 @@ var ContactManager = new Marionette.Application();
 
 ContactManager.addRegions({
 	mainRegion: "#main-region",
+	coursesRegion: "#courses-region",
 });
 
 ContactManager.ErrorView = Marionette.ItemView.extend({
@@ -32,4 +33,14 @@ ContactManager.on("start", function()
 			ContactManager.ContactsApp.List.Controller.listContacts();
 		}
 	}
+
+	
+	var courses = new ContactManager.Entities.Courses();
+	courses.fetch();
+
+	console.log(courses);
+	var coursesView = new ContactManager.Courses.Courses({
+		collection: courses,
+	});
+	ContactManager.coursesRegion.show(coursesView);
 })
